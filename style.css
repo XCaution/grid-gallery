@@ -1,0 +1,164 @@
+*,
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+body {
+  width: 100%;
+  height: 1000px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  color: #292929;
+  transition: 1s ease;
+}
+body.dark {
+  background-color: #191e2f;
+  color: white;
+  transition: 1s ease;
+}
+section {
+  width: 5em;
+  height: 5em;
+  top: 0.5em;
+  position: absolute;
+}
+input[type="checkbox"] {
+  appearance: none;
+  height: 2.5em;
+  width: 5em;
+  background-color: #3a3256;
+  position: absolute;
+  transform: translateX(-50%);
+  left: 50%;
+  top: 2em;
+  border-radius: 5em;
+  cursor: pointer;
+}
+input[type="checkbox"]::before {
+  position: absolute;
+  content: "";
+  background-color: #7d7890;
+  height: 2em;
+  width: 2em;
+  border-radius: 50%;
+  top: 0.28em;
+  left: 0.28em;
+  transition: 0.7s ease-in-out;
+}
+input[type="checkbox"]:checked:before {
+  background-color: #f5f5f5;
+  left: 2.8em;
+  box-shadow: 0 0 8em 1em rgba(196, 241, 255, 1);
+}
+.container {
+  border: 1px solid;
+  width: min-content;
+  height: min-content;
+  margin-top: 6em;
+  display: grid;
+  grid-template-areas:
+    "dua dua"
+    "satu tiga"
+    "empat empat"
+    "empat empat"
+    "lima tujuh"
+    "enam enam";
+  grid-template-columns: repeat(2, 46vw);
+  grid-template-rows: repeat(6, 46vw);
+  gap: 5px;
+}
+.foto > .judul {
+  margin-bottom: -15px;
+  margin-left: 5px;
+  transition: 1s ease;
+  opacity: 0;
+}
+.foto > .dec {
+  margin-bottom: -15px;
+  margin-left: 5px;
+  transition: 1s ease 0.5s;
+  opacity: 0;
+}
+.foto:hover > .judul {
+  display: block;
+  margin-bottom: 5px;
+  opacity: 1;
+}
+.foto:hover > .dec {
+  display: block;
+  margin-bottom: 5px;
+  opacity: 1;
+}
+.foto {
+  position: relative;
+  transition: 1s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  overflow: hidden;
+}
+.foto:hover > img {
+  opacity: 0.5;
+  transform: scale(1.1);
+}
+.foto:hover {
+  background-color: rgba(124, 124, 124, 0.4);
+}
+.foto > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: 1s ease;
+}
+.container > .satu {
+  grid-area: satu;
+}
+.container > .dua {
+  grid-area: dua;
+}
+.container > .tiga {
+  grid-area: tiga;
+}
+.container > .empat {
+  grid-area: empat;
+}
+.container > .lima {
+  grid-area: lima;
+}
+.container > .enam {
+  grid-area: enam;
+}
+.container > .tujuh {
+  grid-area: tujuh;
+}
+
+@media screen and (min-width: 640px) and (max-width: 1023px) {
+  .container {
+    grid-template-areas:
+      "satu dua dua"
+      "tiga empat empat"
+      "lima empat empat"
+      "enam enam tujuh";
+    grid-template-columns: repeat(3, 32vw);
+    grid-template-rows: repeat(4, 32vw);
+  }
+}
+@media screen and (min-width: 1023px) {
+  .container {
+    grid-template-areas:
+      "satu dua dua"
+      "tiga empat empat"
+      "lima empat empat"
+      "enam enam tujuh";
+    grid-template-columns: repeat(3, 300px);
+    grid-template-rows: repeat(4, 300px);
+  }
+}
